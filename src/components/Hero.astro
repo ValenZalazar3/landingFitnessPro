@@ -1,0 +1,63 @@
+---
+const personalImageAlt = 'Valentin Zalazar'
+import Badge from '@/components/Badge.astro'
+
+import MailIcon from '@/icons/Mail.astro'
+import SocialPill from './SocialPill.astro'
+---
+
+<div class='flex flex-col justify-center items-center text-center max-w-4xl'>
+    <div class='flex justify-center gap-4 mb-4'>
+        <img
+            class='rounded-full shadow-lg size-16'
+            src='/Logo.png'
+            alt={personalImageAlt}
+        />
+    </div>
+    <h1
+        class='text-4xl font-bold tracking-tight text-white sm:text-5xl dark:text-white text-shadow'
+    >
+        Landing Fitness Pro
+    </h1>
+    <p
+        class='mt-6 text-2xl text-gray-800 dark:[&>strong]:text-green-400 [&>strong]:text-green-500 [&>strong]:font-semibold dark:text-gray-300'
+    >
+        Especializados en hacer de la <strong>visita una conversión.</strong>
+    </p>
+    <p
+        class='mt-6 text-xl text-gray-800 dark:[&>strong]:text-green-400 [&>strong]:text-green-500 [&>strong]:font-semibold dark:text-gray-300'
+    >
+        Desarrollamos páginas web para coach fitness,
+        <strong>potenciando</strong>
+        su marca personal e <strong>incrementando</strong> su visibilidad.
+    </p>
+    <nav class='flex flex-wrap gap-4 mt-8'>
+        <span class='relative inline-flex overflow-hidden rounded-full p-[1px]'>
+            <span
+                class='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E45151_0%,#552121_50%,#E45151_100%)]'
+            ></span>
+            <div
+                class='inline-flex items-center justify-center w-full text-sm text-green-800 bg-green-100 rounded-full cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap'
+            >
+                <SocialPill href='https://mail.google.com/'>
+                    <MailIcon class='size-4' />
+                    Contáctame
+                </SocialPill>
+            </div>
+        </span>
+        <a
+            href='https://www.linkedin.com/in/valentinzalazar3/'
+            target='_blank'
+            rel='noopener'
+            class='flex items-center transition md:justify-center md:hover:scale-105'
+        >
+            <Badge>Disponible para trabajar</Badge>
+        </a>
+    </nav>
+</div>
+
+<style>
+    .text-shadow {
+        text-shadow: 0 2px 15px rgb(67, 214, 14);
+    }
+</style>
