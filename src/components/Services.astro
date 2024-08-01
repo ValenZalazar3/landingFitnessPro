@@ -47,23 +47,22 @@ const servicesItems = [
 <section>
     <div class='flex flex-col justify-center items-center'>
         <h2
-            class='text-3xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white text-shadow mb-2'
+            class='text-3xl text-center font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white text-shadow mb-2'
         >
             Nuestros Servicios
         </h2>
         <p
-            class='text-lg text-gray-800 [&>strong]:text-green-500 [&>strong]:font-semibold dark:text-gray-300'
+            class='text-lg mb-10 text-center text-gray-800 [&>strong]:text-green-500 [&>strong]:font-semibold dark:text-gray-300'
         >
             Maximiza tu impacto llevando tu negocio al siguiente nivel con
-            nuestros planes exclusivos
-        </p>
-        <p
-            class='mb-10 text-lg text-gray-800 [&>strong]:text-green-500 [&>strong]:font-semibold dark:text-gray-300'
-        >
-            y soluciones diseñadas para el éxito.
+            nuestros <strong>planes exclusivos</strong> y soluciones <strong
+                >diseñadas para el éxito</strong
+            >.
         </p>
     </div>
-    <div class='flex flex-row gap-5'>
+    <div
+        class='flex flex-col justify-center items-center md:items-stretch gap-5 md:flex-row'
+    >
         {
             servicesItems.map(({ title, subtitle, price, text }) => {
                 return (
