@@ -1,0 +1,129 @@
+---
+import Link from '@/icons/Link.astro'
+import LinkButton from './LinkButton.astro'
+import Youtube from '@/icons/Youtube.astro'
+import Tiktok from '@/icons/Tiktok.astro'
+
+const PROJECTS = [
+    {
+        title: 'Yohana Silva Fitness',
+        description:
+            'Profe de educación física, instructora en multiples ramas y coreógrafa. Con entrenamientos personalizados te ayuda a alcarzar tu objetivo físico y mejorar tu mindset.',
+        link: 'https://yohanasilva.com/',
+        redes: [
+            {
+                instagram: 'https://www.instagram.com/yohana_sil/',
+                youtube: 'https://www.youtube.com/c/YohanaSilva',
+                tiktok: 'https://www.tiktok.com/@yohanasil7'
+            }
+        ],
+
+        imageDark: '/projects/yohanaproject.png',
+        imageLight: '/projects/lightYohana.webp'
+    }
+]
+---
+
+<div class='flex flex-col'>
+    <div class='flex flex-col justify-center items-center'>
+        <h2
+            class='text-3xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white text-shadow mb-2'
+        >
+            Proyectos
+        </h2>
+        <p
+            class='text-lg mb-10 text-gray-800 [&>strong]:text-green-500 [&>strong]:font-semibold dark:text-gray-300'
+        >
+            Estos son algunos de nuestros proyectos
+        </p>
+    </div>
+    <div>
+        {
+            PROJECTS.map(
+                ({
+                    imageDark,
+                    imageLight,
+                    title,
+                    description,
+                    redes,
+                    link
+                }) => (
+                    <article class='flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0'>
+                        <div class='w-full md:w-1/2'>
+                            <div class='relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl  md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50'>
+                                <img
+                                    alt={title}
+                                    class='object-cover object-top w-full h-56 transition-opacity duration-500 sm:h-full md:scale-110 md:group-hover:scale-105 project-image'
+                                    loading='lazy'
+                                    src={imageDark}
+                                />
+                            </div>
+                        </div>
+
+                        <div class='w-full md:w-1/2 md:max-w-lg'>
+                            <h3 class='text-2xl font-bold text-gray-800 dark:text-gray-100'>
+                                {title}
+                            </h3>
+                            <div class='mt-2 text-gray-700 dark:text-gray-400'>
+                                {description}
+                            </div>
+                            <div class='mt-2'>
+                                <ul class='flex flex-row mb-2 gap-x-2'>
+                                    {redes.map(
+                                        ({ instagram, youtube, tiktok }) => (
+                                            <li class='flex flex-row'>
+                                                <span
+                                                    class={`flex gap-x-2 rounded-full text-xs py-1 pr-1 `}
+                                                >
+                                                    <a
+                                                        href={instagram}
+                                                        target='_blank'
+                                                    >
+                                                        <img
+                                                            src='/icons/instagram.svg'
+                                                            alt='instagram icon'
+                                                            class='size-6'
+                                                        />
+                                                    </a>
+                                                </span>
+                                                <span
+                                                    class={`flex gap-x-2 rounded-full text-xs py-1 px-2 `}
+                                                >
+                                                    <a
+                                                        href={tiktok}
+                                                        target='_blank'
+                                                    >
+                                                        <Tiktok class='size-6' />
+                                                    </a>
+                                                </span>
+                                                <span
+                                                    class={`flex gap-x-2 rounded-full text-xs py-1 px-2 `}
+                                                >
+                                                    <a
+                                                        href={youtube}
+                                                        target='_blank'
+                                                    >
+                                                        <Youtube class='size-6' />
+                                                    </a>
+                                                </span>
+                                            </li>
+                                        )
+                                    )}
+                                </ul>
+
+                                <footer class='flex  justify-start mt-4 gap-x-4'>
+                                    {link && (
+                                        <LinkButton href={link}>
+                                            <Link class='size-4' />
+                                            Preview
+                                        </LinkButton>
+                                    )}
+                                </footer>
+                            </div>
+                        </div>
+                    </article>
+                )
+            )
+        }
+    </div>
+</div>
